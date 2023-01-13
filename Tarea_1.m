@@ -2,24 +2,31 @@ clc
 clear all
 close all
 
+intento = 1;
+
 while true
-opcion = input('Seleccione una opción:\n    1) C° a K°\n    2) K° a C°\n    3) C° a F°\n    ');
+opcion = input('¿Qué figura tiene 3 lados?\n    1) Cuadrado\n    2) Rectángulo\n    3) Triángulo\n');
+
 
 switch opcion
 
     case 1
-        Temperatura_C = input('Introduce la temperatura en °C:\n');
-        Temperatura_K = Temperatura_C + 273.15;
-        fprintf('La temperatura en °K es %.2f\n\n', Temperatura_K);
+        fprintf('Respuesta incorrecta\n\n');
+        intento = intento + 1;
     case 2
-        Temperatura_K = input('Introduce la temperatura en °K:\n');
-        Temperatura_C = Temperatura_K - 273.15;
-        fprintf('La temperatura en °C es %.2f\n\n', Temperatura_C);
+        fprintf('Respuesta incorrecta\n\n');
+        intento = intento + 1;
     case 3
-        Temperatura_C = input('Introduce la temperatura en °C:\n');
-        Temperatura_F = (Temperatura_C)*(9/5) + 32;
-        fprintf('La temperatura en °F es %.2f\n\n', Temperatura_F);
-    otherwise
+        fprintf('¡Respuesta correcta!\n\n');
+        if intento == 1
+            fprintf('¡Felicidades, lo logró al primer intento!\n');
+            break
+        end
+        fprintf('Intentos = %.0f', intento);
+        intento = intento + 1;
         break
+    otherwise
+        fprintf('Respuesta incorrecta\n\n');
+        intento = intento + 1;
 end
-end      
+end
